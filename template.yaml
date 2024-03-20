@@ -38,6 +38,17 @@ spec:
   # These steps are executed in the scaffolder backend, using data that we gathered
   # via the parameters above.
   steps:
+    # # Each step executes an action, in this case one templates files into the working directory.
+    # - id: betterfetch-base
+    #   name: Better Fetch Base
+    #   action: betterfetch:actions:template
+    #   input:
+    #     url: ./content
+    #     values:
+    #       name: ${{ parameters.name }}
+    #       ignoreFiles:
+    #         - node_modules
+
     # Each step executes an action, in this case one templates files into the working directory.
     - id: fetch-base
       name: Fetch Base
@@ -46,6 +57,13 @@ spec:
         url: ./content
         values:
           name: ${{ parameters.name }}
+
+    # # Delete node_modules folder if it exists
+    # - id: delete-node-modules
+    #   name: Delete node_modules
+    #   action: fs:delete
+    #   input:
+    #     files: ./node_modules
 
     # This step publishes the contents of the working directory to GitHub.
     - id: publish
