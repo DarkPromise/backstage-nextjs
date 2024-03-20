@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-template
 kind: Template
 metadata:
-  name: nextjs
+  name: nextjs-template
   title: Next.js Template
   description: A template for creating a barebones Next.js application, based on create-next-app@latest
 spec:
@@ -43,7 +43,7 @@ spec:
       name: Fetch Base
       action: fetch:template
       input:
-        url: .
+        url: ./content
         values:
           name: ${{ parameters.name }}
 
